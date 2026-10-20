@@ -1,0 +1,1921 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>مستر استراکچر | MrStructure - خدمات آموزشی مهندسی عمران</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/vazirmatn@5.0.3/index.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<style>
+:root{
+  --navy:#0b1e3f;
+  --navy-2:#132a55;
+  --blue:#1e6fd9;
+  --blue-2:#3b8df0;
+  --blue-soft:#e8f1ff;
+  --bg:#f5f8fc;
+  --text:#0f172a;
+  --muted:#5b6b82;
+  --border:#e2e8f0;
+  --success:#10b981;
+  --warn:#f59e0b;
+  --danger:#ef4444;
+  --white:#ffffff;
+  --shadow:0 10px 30px rgba(11,30,63,.08);
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:'Vazirmatn',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+img{max-width:100%;display:block}
+
+/* ===== Header ===== */
+.header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+.header-inner{
+  max-width:1200px;margin:0 auto;padding:14px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--navy);font-size:18px}
+.logo-icon{
+  width:42px;height:42px;border-radius:10px;
+  background:linear-gradient(135deg,var(--navy),var(--blue));
+  display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;
+  box-shadow:0 6px 18px rgba(30,111,217,.35);
+}
+.logo small{display:block;font-size:11px;color:var(--muted);font-weight:500}
+.nav{display:flex;align-items:center;gap:10px}
+.nav a{padding:8px 12px;border-radius:8px;color:var(--navy);font-weight:500;font-size:14px}
+.nav a:hover{background:var(--blue-soft);color:var(--blue)}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 18px;border-radius:10px;font-weight:600;font-size:14px;
+  transition:all .2s;white-space:nowrap;
+}
+.btn-primary{background:var(--navy);color:#fff}
+.btn-primary:hover{background:var(--navy-2);transform:translateY(-1px)}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-blue:hover{background:var(--blue-2);transform:translateY(-1px)}
+.btn-outline{background:#fff;color:var(--navy);border:1.5px solid var(--border)}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+.btn-telegram{background:#229ED9;color:#fff}
+.btn-telegram:hover{background:#1b88bd}
+.btn-ghost{color:var(--navy);padding:8px 12px}
+.btn-ghost:hover{background:var(--blue-soft)}
+.btn-danger{background:var(--danger);color:#fff}
+.btn-success{background:var(--success);color:#fff}
+.btn-sm{padding:7px 12px;font-size:13px}
+.btn-lg{padding:14px 26px;font-size:15px}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.mobile-menu-btn{display:none;font-size:22px;color:var(--navy)}
+
+/* ===== Hero ===== */
+.hero{
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 50%,var(--blue) 100%);
+  color:#fff;padding:80px 20px 100px;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    radial-gradient(circle at 20% 30%,rgba(59,141,240,.25),transparent 40%),
+    radial-gradient(circle at 80% 70%,rgba(59,141,240,.18),transparent 40%);
+}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;text-align:center}
+.hero h1{font-size:clamp(24px,4vw,42px);font-weight:800;margin-bottom:18px;line-height:1.4}
+.hero p{font-size:clamp(14px,1.8vw,18px);max-width:780px;margin:0 auto 36px;opacity:.92;line-height:1.9}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.hero-cta .btn{background:#fff;color:var(--navy);font-weight:700}
+.hero-cta .btn:hover{background:var(--blue-soft);color:var(--blue)}
+.hero-cta .btn.outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5)}
+.hero-cta .btn.outline:hover{background:rgba(255,255,255,.1);border-color:#fff;color:#fff}
+.hero-stats{display:flex;justify-content:center;gap:40px;margin-top:50px;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat .num{font-size:28px;font-weight:800;color:#fff}
+.hero-stat .lbl{font-size:13px;opacity:.8}
+
+/* ===== Sections ===== */
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+section{padding:70px 0}
+.section-title{text-align:center;margin-bottom:50px}
+.section-title h2{font-size:30px;font-weight:800;color:var(--navy);margin-bottom:10px}
+.section-title p{color:var(--muted);font-size:16px}
+
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.service-card{
+  background:#fff;border-radius:var(--radius);padding:30px;
+  border:1px solid var(--border);transition:all .3s;
+  display:flex;flex-direction:column;
+}
+.service-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--blue)}
+.service-icon{
+  width:60px;height:60px;border-radius:14px;
+  background:var(--blue-soft);color:var(--blue);
+  display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:18px;
+}
+.service-card h3{font-size:19px;color:var(--navy);margin-bottom:10px}
+.service-card p{color:var(--muted);font-size:14px;margin-bottom:20px;flex:1}
+.service-card .btn{align-self:flex-start}
+
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.feature{
+  background:#fff;border-radius:var(--radius);padding:24px;
+  border:1px solid var(--border);
+}
+.feature i{color:var(--blue);font-size:24px;margin-bottom:12px}
+.feature h4{color:var(--navy);margin-bottom:8px;font-size:16px}
+.feature p{color:var(--muted);font-size:14px}
+
+/* ===== Footer ===== */
+.footer{
+  background:var(--navy);color:#fff;padding:50px 0 20px;margin-top:40px;
+}
+.footer-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;
+  max-width:1200px;margin:0 auto;padding:0 20px 30px;
+}
+.footer h4{margin-bottom:14px;font-size:16px}
+.footer p,.footer a{color:rgba(255,255,255,.75);font-size:14px;line-height:2}
+.footer a:hover{color:#fff}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.1);
+  text-align:center;padding-top:20px;font-size:13px;color:rgba(255,255,255,.6);
+}
+
+/* ===== Modal ===== */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(11,30,63,.6);
+  display:none;align-items:center;justify-content:center;z-index:100;
+  padding:20px;backdrop-filter:blur(4px);
+}
+.modal-overlay.active{display:flex;animation:fadeIn .2s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal{
+  background:#fff;border-radius:var(--radius);max-width:520px;width:100%;
+  max-height:90vh;overflow-y:auto;animation:slideUp .25s;
+}
+@keyframes slideUp{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal-header{
+  padding:20px 24px;border-bottom:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.modal-header h3{color:var(--navy);font-size:18px}
+.modal-close{font-size:22px;color:var(--muted);padding:4px 10px;border-radius:6px}
+.modal-close:hover{background:var(--blue-soft);color:var(--blue)}
+.modal-body{padding:24px}
+
+/* ===== Forms ===== */
+.form-group{margin-bottom:18px}
+.form-group label{display:block;margin-bottom:8px;font-weight:600;color:var(--navy);font-size:14px}
+.form-group .hint{font-size:12px;color:var(--muted);font-weight:400;margin-right:6px}
+.form-control{
+  width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:10px;
+  font-family:inherit;font-size:14px;background:#fff;color:var(--text);
+  transition:border-color .2s;
+}
+.form-control:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(30,111,217,.12)}
+textarea.form-control{resize:vertical;min-height:100px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-error{color:var(--danger);font-size:13px;margin-top:6px;display:none}
+.form-error.show{display:block}
+
+/* ===== File Upload ===== */
+.file-upload{
+  border:2px dashed var(--border);border-radius:12px;padding:24px;text-align:center;
+  background:#fafbfc;transition:all .2s;cursor:pointer;
+}
+.file-upload:hover,.file-upload.dragover{border-color:var(--blue);background:var(--blue-soft)}
+.file-upload i{font-size:32px;color:var(--blue);margin-bottom:10px}
+.file-upload p{color:var(--muted);font-size:14px;margin-bottom:4px}
+.file-upload small{color:var(--muted);font-size:12px}
+.file-list{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+.file-item{
+  display:flex;align-items:center;gap:10px;padding:10px 12px;
+  background:#fff;border:1px solid var(--border);border-radius:10px;
+}
+.file-item img{width:44px;height:44px;object-fit:cover;border-radius:6px}
+.file-item .file-info{flex:1;min-width:0}
+.file-item .file-name{font-size:13px;font-weight:600;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.file-item .file-size{font-size:11px;color:var(--muted)}
+.file-item .remove-btn{color:var(--danger);padding:4px 8px;border-radius:6px}
+.file-item .remove-btn:hover{background:rgba(239,68,68,.1)}
+.upload-progress{height:4px;background:var(--border);border-radius:2px;overflow:hidden;margin-top:6px}
+.upload-progress-bar{height:100%;background:var(--blue);transition:width .3s}
+
+/* ===== Dashboard ===== */
+.page{display:none;min-height:calc(100vh - 200px)}
+.page.active{display:block}
+.dash-layout{display:grid;grid-template-columns:240px 1fr;gap:24px;max-width:1200px;margin:0 auto;padding:30px 20px}
+.dash-sidebar{
+  background:#fff;border-radius:var(--radius);padding:16px;
+  border:1px solid var(--border);height:fit-content;position:sticky;top:90px;
+}
+.dash-sidebar h4{padding:8px 12px;color:var(--muted);font-size:12px;margin-bottom:6px}
+.dash-nav-item{
+  display:flex;align-items:center;gap:10px;padding:10px 12px;
+  border-radius:8px;color:var(--navy);font-weight:500;font-size:14px;
+  cursor:pointer;margin-bottom:2px;
+}
+.dash-nav-item:hover{background:var(--blue-soft)}
+.dash-nav-item.active{background:var(--navy);color:#fff}
+.dash-nav-item i{width:18px;text-align:center}
+.dash-main{min-width:0}
+.dash-card{
+  background:#fff;border-radius:var(--radius);padding:24px;
+  border:1px solid var(--border);margin-bottom:20px;
+}
+.dash-card h3{color:var(--navy);font-size:18px;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:24px}
+.stat-card{
+  background:#fff;border-radius:var(--radius);padding:18px;
+  border:1px solid var(--border);
+}
+.stat-card .label{color:var(--muted);font-size:13px;margin-bottom:6px}
+.stat-card .value{font-size:26px;font-weight:800;color:var(--navy)}
+.stat-card.blue{background:linear-gradient(135deg,var(--blue),var(--blue-2));color:#fff}
+.stat-card.blue .label,.stat-card.blue .value{color:#fff}
+.stat-card.navy{background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff}
+.stat-card.navy .label,.stat-card.navy .value{color:#fff}
+
+/* ===== Table ===== */
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:12px;text-align:right;border-bottom:1px solid var(--border)}
+th{background:var(--bg);color:var(--navy);font-weight:700;font-size:13px;white-space:nowrap}
+td{color:var(--text)}
+tr:hover td{background:var(--bg)}
+.badge{
+  display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600;
+}
+.badge-pending{background:#fef3c7;color:#92400e}
+.badge-review{background:#dbeafe;color:#1e40af}
+.badge-priced{background:#e0e7ff;color:#3730a3}
+.badge-progress{background:#fef3c7;color:#92400e}
+.badge-ready{background:#d1fae5;color:#065f46}
+.badge-done{background:#10b981;color:#fff}
+.badge-cancel{background:#fee2e2;color:#991b1b}
+.badge-info{background:#e0f2fe;color:#075985}
+
+/* ===== Order Detail ===== */
+.order-header{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  flex-wrap:wrap;gap:14px;margin-bottom:20px;
+}
+.order-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:20px}
+.meta-item{padding:12px;background:var(--bg);border-radius:8px}
+.meta-item .lbl{font-size:12px;color:var(--muted);margin-bottom:4px}
+.meta-item .val{font-weight:600;color:var(--navy);font-size:14px}
+
+.timeline{position:relative;padding-right:28px;margin:20px 0}
+.timeline::before{content:"";position:absolute;right:10px;top:0;bottom:0;width:2px;background:var(--border)}
+.timeline-item{position:relative;padding-bottom:20px}
+.timeline-item::before{
+  content:"";position:absolute;right:-23px;top:4px;width:14px;height:14px;
+  border-radius:50%;background:#fff;border:3px solid var(--border);
+}
+.timeline-item.done::before{background:var(--success);border-color:var(--success)}
+.timeline-item.current::before{background:var(--blue);border-color:var(--blue);box-shadow:0 0 0 4px rgba(30,111,217,.2)}
+.timeline-item .time{font-size:11px;color:var(--muted)}
+.timeline-item .title{font-weight:600;color:var(--navy);font-size:14px}
+
+.messages-list{display:flex;flex-direction:column;gap:12px;margin-bottom:16px;max-height:400px;overflow-y:auto;padding:10px}
+.message{padding:12px 14px;border-radius:12px;max-width:80%}
+.message.user{background:var(--blue-soft);color:var(--navy);align-self:flex-end;border-bottom-left-radius:4px}
+.message.admin{background:var(--bg);color:var(--text);align-self:flex-start;border-bottom-right-radius:4px}
+.message .sender{font-size:12px;font-weight:700;margin-bottom:4px}
+.message .time{font-size:11px;color:var(--muted);margin-top:4px}
+.message-input{display:flex;gap:8px}
+.message-input textarea{flex:1}
+
+/* ===== Toast ===== */
+.toast-container{position:fixed;top:80px;left:20px;z-index:200;display:flex;flex-direction:column;gap:10px}
+.toast{
+  background:#fff;border-radius:10px;padding:14px 18px;box-shadow:var(--shadow);
+  border-right:4px solid var(--blue);min-width:260px;animation:slideIn .3s;
+  display:flex;align-items:center;gap:10px;
+}
+.toast.success{border-right-color:var(--success)}
+.toast.error{border-right-color:var(--danger)}
+.toast.warn{border-right-color:var(--warn)}
+@keyframes slideIn{from{transform:translateX(-100%);opacity:0}to{transform:translateX(0);opacity:1}}
+
+/* ===== Tabs ===== */
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--border);margin-bottom:20px;overflow-x:auto}
+.tab{
+  padding:10px 16px;font-weight:600;color:var(--muted);font-size:14px;
+  border-bottom:2px solid transparent;white-space:nowrap;cursor:pointer;
+}
+.tab.active{color:var(--blue);border-bottom-color:var(--blue)}
+
+/* ===== Empty State ===== */
+.empty-state{text-align:center;padding:40px 20px;color:var(--muted)}
+.empty-state i{font-size:48px;margin-bottom:14px;color:var(--border)}
+.empty-state h4{color:var(--navy);margin-bottom:8px}
+
+/* ===== Responsive ===== */
+@media(max-width:900px){
+  .dash-layout{grid-template-columns:1fr}
+  .dash-sidebar{position:static}
+  .form-row{grid-template-columns:1fr}
+  .nav .nav-links{display:none}
+  .mobile-menu-btn{display:block}
+  .nav.open .nav-links{
+    display:flex;flex-direction:column;position:absolute;top:70px;right:0;left:0;
+    background:#fff;padding:14px;border-bottom:1px solid var(--border);gap:4px;
+  }
+  .hero{padding:50px 20px 70px}
+  .hero-stats{gap:20px}
+}
+@media(max-width:500px){
+  .hero-cta{flex-direction:column;align-items:stretch}
+  .hero-cta .btn{justify-content:center}
+  .order-header{flex-direction:column}
+}
+
+/* ===== Utility ===== */
+.hidden{display:none !important}
+.text-center{text-align:center}
+.mt-2{margin-top:10px}
+.mt-3{margin-top:16px}
+.mt-4{margin-top:24px}
+.mb-2{margin-bottom:10px}
+.flex{display:flex}
+.flex-between{display:flex;justify-content:space-between;align-items:center}
+.gap-2{gap:10px}
+.gap-3{gap:14px}
+.flex-wrap{flex-wrap:wrap}
+.filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.filter-bar .form-control{width:auto;min-width:140px}
+.attachments-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-top:10px}
+.attachment-thumb{
+  position:relative;border-radius:8px;overflow:hidden;border:1px solid var(--border);
+  aspect-ratio:1;background:var(--bg);
+}
+.attachment-thumb img{width:100%;height:100%;object-fit:cover}
+.attachment-thumb .pdf-thumb{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  height:100%;color:var(--danger);
+}
+.attachment-thumb .pdf-thumb i{font-size:32px;margin-bottom:6px}
+.attachment-thumb .pdf-thumb span{font-size:11px;color:var(--muted)}
+.attachment-thumb a.download{
+  position:absolute;bottom:4px;left:4px;background:rgba(0,0,0,.7);color:#fff;
+  width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:12px;
+}
+.price-history{margin-top:14px;border-top:1px solid var(--border);padding-top:14px}
+.price-history h5{color:var(--navy);font-size:14px;margin-bottom:10px}
+.price-item{padding:10px;background:var(--bg);border-radius:8px;margin-bottom:8px;font-size:13px}
+.price-item .amount{font-weight:700;color:var(--navy)}
+.price-item .status{font-size:12px;margin-top:4px}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo" onclick="navigate('home');return false;">
+      <div class="logo-icon"><i class="fas fa-building-columns"></i></div>
+      <div>
+        مستر استراکچر
+        <small>MrStructure</small>
+      </div>
+    </a>
+    <nav class="nav" id="mainNav">
+      <div class="nav-links">
+        <a href="#" onclick="navigate('home');return false;">خانه</a>
+        <a href="#" onclick="navigate('home');scrollToId('services');return false;">خدمات</a>
+        <a href="#" onclick="navigate('home');scrollToId('features');return false;">ویژگی‌ها</a>
+      </div>
+      <div id="authButtons"></div>
+      <button class="mobile-menu-btn" onclick="document.getElementById('mainNav').classList.toggle('open')">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HOME PAGE ============ -->
+<div id="page-home" class="page active">
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>در حل مسائل عمران به مشکل خوردی؟ من کمکت می‌کنم.</h1>
+      <p>رفع اشکال تخصصی، حل تشریحی تمرین‌ها و آموزش خصوصی دروس مهندسی عمران، با امکان ارسال سؤال و دریافت پاسخ اختصاصی.</p>
+      <div class="hero-cta">
+        <button class="btn btn-lg" onclick="openRequestForm('troubleshoot')">
+          <i class="fas fa-lightbulb"></i> ثبت درخواست رفع اشکال
+        </button>
+        <button class="btn btn-lg outline" onclick="openRequestForm('exercise')">
+          <i class="fas fa-file-pen"></i> سفارش حل تمرین
+        </button>
+        <button class="btn btn-lg outline" onclick="openRequestForm('tutoring')">
+          <i class="fas fa-chalkboard-user"></i> درخواست آموزش خصوصی
+        </button>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="num">+۵۰</div><div class="lbl">دانشجوی همراه</div></div>
+        <div class="hero-stat"><div class="num">+۲۰۰</div><div class="lbl">مسئله حل‌شده</div></div>
+        <div class="hero-stat"><div class="num">۲۴/۷</div><div class="lbl">پشتیبانی</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>خدمات ما</h2>
+        <p>هر نوع کمکی که در دروس مهندسی عمران نیاز داری، اینجا پیدا می‌کنی</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
+          <h3>رفع اشکال تخصصی</h3>
+          <p>در هر مبحثی از دروس عمران که گیر کردی، سؤال و تصاویر صورت مسئله را بفرست و پاسخ تشریحی دریافت کن.</p>
+          <button class="btn btn-blue" onclick="openRequestForm('troubleshoot')">ثبت درخواست</button>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-file-pen"></i></div>
+          <h3>حل تمرین تشریحی</h3>
+          <p>تمرین‌ها و مسائل خود را با تصویر یا PDF ارسال کن و راه‌حل کامل و گام‌به‌گام دریافت کن.</p>
+          <button class="btn btn-blue" onclick="openRequestForm('exercise')">سفارش حل تمرین</button>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-chalkboard-user"></i></div>
+          <h3>آموزش خصوصی</h3>
+          <p>جلسات آنلاین اختصاصی برای یادگیری عمیق دروس مهندسی عمران با برنامه‌ریزی متناسب با سطح تو.</p>
+          <button class="btn btn-blue" onclick="openRequestForm('tutoring')">درخواست آموزش</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#fff">
+    <div class="container">
+      <div class="section-title">
+        <h2>چرا مستر استراکچر؟</h2>
+        <p>تجربه‌ای ساده، امن و حرفه‌ای برای دریافت خدمات آموزشی</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature">
+          <i class="fas fa-images"></i>
+          <h4>ارسال آسان تصاویر و PDF</h4>
+          <p>صورت سؤال را با عکس یا فایل PDF به‌سادگی آپلود کن.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-hand-holding-dollar"></i>
+          <h4>قیمت‌گذاری منصفانه</h4>
+          <p>پس از بررسی سؤال، مبلغ و زمان تحویل اعلام می‌شود و بدون تأیید تو هیچ هزینه‌ای قطعی نمی‌شود.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-list-check"></i>
+          <h4>پیگیری لحظه‌ای</h4>
+          <p>با شماره پیگیری اختصاصی، وضعیت سفارش را در هر مرحله مشاهده کن.</p>
+        </div>
+        <div class="feature">
+          <i class="fab fa-telegram"></i>
+          <h4>ارتباط مستقیم</h4>
+          <p>هر زمان نیاز به هماهنگی داشتی، مستقیماً در تلگرام با من در ارتباط باش.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container text-center">
+      <div class="dash-card" style="background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;border:none">
+        <h3 style="color:#fff;justify-content:center;font-size:22px">نیاز به هماهنگی داری؟</h3>
+        <p style="opacity:.9;margin-bottom:20px">مستقیماً در تلگرام با من در ارتباط باش</p>
+        <a href="https://t.me/mrstructure1" target="_blank" class="btn btn-telegram btn-lg">
+          <i class="fab fa-telegram"></i> ارتباط با من در تلگرام
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ REQUEST FORMS PAGE ============ -->
+<div id="page-request" class="page">
+  <div class="container" style="padding:30px 20px;max-width:820px">
+    <div class="dash-card">
+      <div class="flex-between mb-2 flex-wrap gap-2">
+        <h3 id="requestFormTitle" style="margin:0"><i class="fas fa-file-pen"></i> ثبت درخواست</h3>
+        <a href="https://t.me/mrstructure1" target="_blank" class="btn btn-telegram btn-sm">
+          <i class="fab fa-telegram"></i> ارتباط در تلگرام
+        </a>
+      </div>
+      <p style="color:var(--muted);font-size:14px;margin-bottom:20px" id="requestFormDesc"></p>
+
+      <form id="requestForm" onsubmit="submitRequest(event)">
+        <input type="hidden" id="req_type" />
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>درس *</label>
+            <select class="form-control" id="req_subject" required>
+              <option value="">انتخاب کنید...</option>
+              <option>استاتیک</option>
+              <option>دینامیک</option>
+              <option>مقاومت مصالح</option>
+              <option>تحلیل سازه</option>
+              <option>طرح سازه‌های فولادی</option>
+              <option>طرح سازه‌های بتنی</option>
+              <option>مکانیک خاک</option>
+              <option>مکانیک سیالات</option>
+              <option>هیدرولیک</option>
+              <option>راه‌سازی</option>
+              <option>پی‌سازی</option>
+              <option>سایر</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>مبحث / فصل</label>
+            <input type="text" class="form-control" id="req_topic" placeholder="مثلاً: خرپا، خمش تیر..." />
+          </div>
+        </div>
+
+        <div class="form-group" id="group_description">
+          <label>شرح صورت مسئله / مشکل *</label>
+          <textarea class="form-control" id="req_description" required placeholder="توضیح کاملی از مسئله یا مشکلی که داری بنویس..."></textarea>
+        </div>
+
+        <!-- Troubleshoot specific -->
+        <div class="form-group hidden" id="group_help_type">
+          <label>نوع کمک موردنیاز</label>
+          <select class="form-control" id="req_help_type">
+            <option>توضیح مفهوم</option>
+            <option>حل گام‌به‌گام</option>
+            <option>بررسی راه‌حل من</option>
+            <option>سایر</option>
+          </select>
+        </div>
+
+        <!-- Exercise specific -->
+        <div class="form-row">
+          <div class="form-group hidden" id="group_qcount">
+            <label>تعداد سؤالات</label>
+            <input type="number" class="form-control" id="req_qcount" min="1" value="1" />
+          </div>
+          <div class="form-group hidden" id="group_output">
+            <label>نوع خروجی موردنیاز</label>
+            <select class="form-control" id="req_output">
+              <option>حل تشریحی کامل</option>
+              <option>فقط پاسخ نهایی</option>
+              <option>راهنمایی گام‌به‌گام</option>
+              <option>فایل PDF</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Tutoring specific -->
+        <div class="form-group hidden" id="group_level">
+          <label>سطح فعلی شما</label>
+          <select class="form-control" id="req_level">
+            <option>مبتدی</option>
+            <option>متوسط</option>
+            <option>پیشرفته</option>
+          </select>
+        </div>
+        <div class="form-group hidden" id="group_goal">
+          <label>هدف آموزشی</label>
+          <input type="text" class="form-control" id="req_goal" placeholder="مثلاً: آمادگی برای امتحان، تقویت پایه..." />
+        </div>
+        <div class="form-row">
+          <div class="form-group hidden" id="group_duration">
+            <label>مدت هر جلسه</label>
+            <select class="form-control" id="req_duration">
+              <option>۱ ساعت</option>
+              <option>۱.۵ ساعت</option>
+              <option>۲ ساعت</option>
+              <option>بستگی به مبحث دارد</option>
+            </select>
+          </div>
+          <div class="form-group hidden" id="group_time">
+            <label>زمان‌های پیشنهادی</label>
+            <input type="text" class="form-control" id="req_time" placeholder="مثلاً: شنبه‌ها ساعت ۱۸" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group hidden" id="group_urgency">
+            <label>فوریت درخواست</label>
+            <select class="form-control" id="req_urgency">
+              <option>عادی</option>
+              <option>نیمه‌فوری (۲۴-۴۸ ساعت)</option>
+              <option>فوری (کمتر از ۲۴ ساعت)</option>
+            </select>
+          </div>
+          <div class="form-group hidden" id="group_deadline">
+            <label>مهلت پیشنهادی شما</label>
+            <input type="text" class="form-control" id="req_deadline" placeholder="مثلاً: تا پایان هفته" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>
+            بارگذاری تصاویر و PDF
+            <span class="hint">(حداکثر ۱۰ فایل، هر فایل تا ۵ مگابایت — فرمت‌های مجاز: JPG, PNG, PDF)</span>
+          </label>
+          <div class="file-upload" id="fileDropZone">
+            <i class="fas fa-cloud-arrow-up"></i>
+            <p>فایل‌ها را اینجا بکشید یا کلیک کنید</p>
+            <small>تصویر (JPG/PNG) یا PDF - حداکثر ۵MB برای هر فایل</small>
+            <input type="file" id="fileInput" multiple accept="image/jpeg,image/png,application/pdf" style="display:none" />
+          </div>
+          <div class="form-error" id="fileError"></div>
+          <div class="file-list" id="fileList"></div>
+        </div>
+
+        <div class="form-group">
+          <label>توضیحات تکمیلی</label>
+          <textarea class="form-control" id="req_extra" placeholder="هر نکته دیگری که باید بدانم..."></textarea>
+        </div>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
+            <i class="fas fa-paper-plane"></i> ثبت درخواست
+          </button>
+          <button type="button" class="btn btn-outline btn-lg" onclick="navigate('home')">انصراف</button>
+          <a href="https://t.me/mrstructure1" target="_blank" class="btn btn-telegram btn-lg">
+            <i class="fab fa-telegram"></i> ارتباط در تلگرام
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ============ USER DASHBOARD ============ -->
+<div id="page-user" class="page">
+  <div class="dash-layout">
+    <aside class="dash-sidebar">
+      <h4>پنل کاربری</h4>
+      <div class="dash-nav-item active" onclick="showUserTab('orders',this)"><i class="fas fa-list"></i> سفارش‌های من</div>
+      <div class="dash-nav-item" onclick="showUserTab('new',this)"><i class="fas fa-plus"></i> درخواست جدید</div>
+      <div class="dash-nav-item" onclick="showUserTab('profile',this)"><i class="fas fa-user"></i> اطلاعات حساب</div>
+      <div class="dash-nav-item" onclick="logout()" style="color:var(--danger);margin-top:20px"><i class="fas fa-right-from-bracket"></i> خروج</div>
+    </aside>
+    <main class="dash-main" id="userMain"></main>
+  </div>
+</div>
+
+<!-- ============ ADMIN DASHBOARD ============ -->
+<div id="page-admin" class="page">
+  <div class="dash-layout">
+    <aside class="dash-sidebar">
+      <h4>پنل مدیریت</h4>
+      <div class="dash-nav-item active" onclick="showAdminTab('dashboard',this)"><i class="fas fa-chart-line"></i> داشبورد</div>
+      <div class="dash-nav-item" onclick="showAdminTab('orders',this)"><i class="fas fa-inbox"></i> درخواست‌ها</div>
+      <div class="dash-nav-item" onclick="showAdminTab('users',this)"><i class="fas fa-users"></i> کاربران</div>
+      <div class="dash-nav-item" onclick="logout()" style="color:var(--danger);margin-top:20px"><i class="fas fa-right-from-bracket"></i> خروج</div>
+    </aside>
+    <main class="dash-main" id="adminMain"></main>
+  </div>
+</div>
+
+<!-- ============ ORDER DETAIL PAGE ============ -->
+<div id="page-order" class="page">
+  <div class="container" style="padding:30px 20px;max-width:1000px">
+    <div id="orderDetailContent"></div>
+  </div>
+</div>
+
+<!-- ============ AUTH MODAL ============ -->
+<div class="modal-overlay" id="authModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="authTitle">ورود به حساب</h3>
+      <button class="modal-close" onclick="closeModal('authModal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="tabs">
+        <div class="tab active" onclick="switchAuthTab('login',this)">ورود</div>
+        <div class="tab" onclick="switchAuthTab('register',this)">ثبت‌نام</div>
+      </div>
+
+      <form id="loginForm" onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label>نام کاربری یا ایمیل</label>
+          <input type="text" class="form-control" id="login_username" required />
+        </div>
+        <div class="form-group">
+          <label>رمز عبور</label>
+          <input type="password" class="form-control" id="login_password" required />
+        </div>
+        <div class="form-error" id="loginError"></div>
+        <button type="submit" class="btn btn-primary" style="width:100%">ورود</button>
+        <p style="text-align:center;margin-top:14px;font-size:13px;color:var(--muted)">
+          حساب مدیر: <code>admin</code> / <code>mrstructure1403</code>
+        </p>
+      </form>
+
+      <form id="registerForm" class="hidden" onsubmit="handleRegister(event)">
+        <div class="form-group">
+          <label>نام و نام خانوادگی</label>
+          <input type="text" class="form-control" id="reg_name" required />
+        </div>
+        <div class="form-group">
+          <label>ایمیل</label>
+          <input type="email" class="form-control" id="reg_email" required />
+        </div>
+        <div class="form-group">
+          <label>نام کاربری</label>
+          <input type="text" class="form-control" id="reg_username" required minlength="3" />
+        </div>
+        <div class="form-group">
+          <label>رمز عبور</label>
+          <input type="password" class="form-control" id="reg_password" required minlength="6" />
+        </div>
+        <div class="form-error" id="regError"></div>
+        <button type="submit" class="btn btn-primary" style="width:100%">ثبت‌نام</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ADMIN PRICE MODAL ============ -->
+<div class="modal-overlay" id="priceModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>ثبت قیمت و زمان تحویل</h3>
+      <button class="modal-close" onclick="closeModal('priceModal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <form onsubmit="submitPrice(event)">
+        <input type="hidden" id="price_order_id" />
+        <div class="form-row">
+          <div class="form-group">
+            <label>مبلغ پیشنهادی *</label>
+            <input type="number" class="form-control" id="price_amount" required min="0" />
+          </div>
+          <div class="form-group">
+            <label>واحد پول</label>
+            <select class="form-control" id="price_currency">
+              <option value="تومان">تومان</option>
+              <option value="ریال">ریال</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>زمان تحویل پیشنهادی *</label>
+          <input type="text" class="form-control" id="price_delivery" required placeholder="مثلاً: ۲ روز، ۴۸ ساعت، جمعه ساعت ۲۰" />
+        </div>
+        <div class="form-group">
+          <label>مهلت اعتبار پیشنهاد</label>
+          <select class="form-control" id="price_validity">
+            <option value="24">۲۴ ساعت</option>
+            <option value="48" selected>۴۸ ساعت</option>
+            <option value="72">۷۲ ساعت</option>
+            <option value="168">یک هفته</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>توضیحات درباره هزینه و خدمات</label>
+          <textarea class="form-control" id="price_notes" placeholder="توضیح دهید چه خدماتی ارائه می‌شود..."></textarea>
+        </div>
+        <div class="form-error" id="priceError"></div>
+        <button type="submit" class="btn btn-primary" style="width:100%">ارسال پیشنهاد</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ADMIN STATUS MODAL ============ -->
+<div class="modal-overlay" id="statusModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>تغییر وضعیت سفارش</h3>
+      <button class="modal-close" onclick="closeModal('statusModal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <form onsubmit="submitStatusChange(event)">
+        <input type="hidden" id="status_order_id" />
+        <div class="form-group">
+          <label>وضعیت جدید</label>
+          <select class="form-control" id="status_new" required>
+            <option value="registered">ثبت‌شده</option>
+            <option value="reviewing">در انتظار بررسی مدیر</option>
+            <option value="need_info">نیازمند اطلاعات بیشتر</option>
+            <option value="priced">قیمت اعلام‌شده</option>
+            <option value="awaiting_user_confirm">در انتظار تأیید کاربر</option>
+            <option value="awaiting_payment">در انتظار پرداخت</option>
+            <option value="in_progress">در حال انجام</option>
+            <option value="ready">آماده تحویل</option>
+            <option value="completed">تکمیل‌شده</option>
+            <option value="cancelled">لغوشده</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>توضیحات (اختیاری)</label>
+          <textarea class="form-control" id="status_note"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%">ثبت تغییر</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ADMIN UPLOAD DELIVERY MODAL ============ -->
+<div class="modal-overlay" id="deliveryModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>بارگذاری فایل نهایی پاسخ</h3>
+      <button class="modal-close" onclick="closeModal('deliveryModal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <form onsubmit="submitDelivery(event)">
+        <input type="hidden" id="delivery_order_id" />
+        <div class="form-group">
+          <label>فایل‌های پاسخ</label>
+          <div class="file-upload" id="deliveryDropZone">
+            <i class="fas fa-file-arrow-up"></i>
+            <p>فایل پاسخ را انتخاب کنید</p>
+            <small>PDF یا تصویر - حداکثر ۱۰MB</small>
+            <input type="file" id="deliveryFileInput" multiple accept="image/jpeg,image/png,application/pdf,application/zip,application/x-rar-compressed" style="display:none" />
+          </div>
+          <div class="file-list" id="deliveryFileList"></div>
+        </div>
+        <div class="form-group">
+          <label>توضیحات تحویل</label>
+          <textarea class="form-control" id="delivery_notes" placeholder="توضیحات درباره فایل تحویلی..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-success" style="width:100%">تحویل سفارش</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <h4>مستر استراکچر</h4>
+      <p>خدمات تخصصی آموزشی در زمینه دروس مهندسی عمران. رفع اشکال، حل تمرین و آموزش خصوصی.</p>
+    </div>
+    <div>
+      <h4>دسترسی سریع</h4>
+      <p><a href="#" onclick="openRequestForm('troubleshoot');return false;">رفع اشکال</a></p>
+      <p><a href="#" onclick="openRequestForm('exercise');return false;">حل تمرین</a></p>
+      <p><a href="#" onclick="openRequestForm('tutoring');return false;">آموزش خصوصی</a></p>
+    </div>
+    <div>
+      <h4>ارتباط با ما</h4>
+      <p><a href="https://t.me/mrstructure1" target="_blank"><i class="fab fa-telegram"></i> @mrstructure1</a></p>
+      <p style="margin-top:14px">
+        <a href="https://t.me/mrstructure1" target="_blank" class="btn btn-telegram btn-sm">
+          <i class="fab fa-telegram"></i> ارتباط مستقیم در تلگرام
+        </a>
+      </p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © ۲۰۲۶ مستر استراکچر | MrStructure - تمامی حقوق محفوظ است.
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   MrStructure - Single-file Application
+   Storage: localStorage (client-side MVP)
+   Note: For production, connect to real backend (Node/Supabase/etc.)
+   ============================================================ */
+
+// ============ DATA LAYER ============
+const DB_KEY = 'mrstructure_db_v1';
+const SESSION_KEY = 'mrstructure_session_v1';
+
+const DEFAULT_DB = {
+  users: [
+    { id:'admin', username:'admin', password:'mrstructure1403', name:'مدیر سایت', email:'admin@mrstructure.local', role:'admin', createdAt:Date.now() }
+  ],
+  orders: [],
+  messages: [],
+  files: [],
+  priceHistory: [],
+  statusHistory: []
+};
+
+function loadDB(){
+  try{
+    const raw = localStorage.getItem(DB_KEY);
+    if(!raw){ saveDB(DEFAULT_DB); return structuredClone(DEFAULT_DB); }
+    return JSON.parse(raw);
+  }catch(e){ return structuredClone(DEFAULT_DB); }
+}
+function saveDB(db){ localStorage.setItem(DB_KEY, JSON.stringify(db)); }
+function getSession(){ try{ return JSON.parse(sessionStorage.getItem(SESSION_KEY)); }catch(e){ return null; } }
+function setSession(s){ sessionStorage.setItem(SESSION_KEY, JSON.stringify(s)); }
+function clearSession(){ sessionStorage.removeItem(SESSION_KEY); }
+
+let db = loadDB();
+let currentSession = getSession();
+let pendingFiles = []; // files for current form
+let deliveryFiles = []; // files for delivery
+
+// ============ UTILITIES ============
+function uid(prefix=''){ return prefix + Date.now().toString(36) + Math.random().toString(36).slice(2,8); }
+function trackingNumber(){
+  // 8-digit tracking code
+  const n = Math.floor(10000000 + Math.random()*90000000);
+  return 'MRS-' + n;
+}
+function formatSize(bytes){
+  if(bytes<1024) return bytes+' B';
+  if(bytes<1024*1024) return (bytes/1024).toFixed(1)+' KB';
+  return (bytes/1024/1024).toFixed(2)+' MB';
+}
+function formatDate(ts){
+  const d = new Date(ts);
+  return d.toLocaleDateString('fa-IR') + ' - ' + d.toLocaleTimeString('fa-IR',{hour:'2-digit',minute:'2-digit'});
+}
+function escapeHtml(s){
+  if(!s) return '';
+  return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+const STATUS_LABELS = {
+  registered:'ثبت‌شده',
+  reviewing:'در انتظار بررسی مدیر',
+  need_info:'نیازمند اطلاعات بیشتر',
+  priced:'قیمت اعلام‌شده',
+  awaiting_user_confirm:'در انتظار تأیید کاربر',
+  awaiting_payment:'در انتظار پرداخت',
+  in_progress:'در حال انجام',
+  ready:'آماده تحویل',
+  completed:'تکمیل‌شده',
+  cancelled:'لغوشده'
+};
+const STATUS_BADGE = {
+  registered:'badge-info',
+  reviewing:'badge-review',
+  need_info:'badge-pending',
+  priced:'badge-priced',
+  awaiting_user_confirm:'badge-pending',
+  awaiting_payment:'badge-pending',
+  in_progress:'badge-progress',
+  ready:'badge-ready',
+  completed:'badge-done',
+  cancelled:'badge-cancel'
+};
+const SERVICE_LABELS = {
+  troubleshoot:'رفع اشکال',
+  exercise:'حل تمرین',
+  tutoring:'آموزش خصوصی'
+};
+
+// ============ NAVIGATION ============
+function navigate(page){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const el = document.getElementById('page-'+page);
+  if(el) el.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  document.getElementById('mainNav').classList.remove('open');
+  
+  if(page==='user') renderUserDashboard();
+  if(page==='admin') renderAdminDashboard();
+}
+function scrollToId(id){
+  setTimeout(()=>{
+    const el = document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:'smooth'});
+  },100);
+}
+
+// ============ TOAST ============
+function toast(msg, type='info'){
+  const c = document.getElementById('toastContainer');
+  const t = document.createElement('div');
+  t.className = 'toast '+type;
+  const icon = type==='success'?'check-circle':type==='error'?'exclamation-circle':type==='warn'?'exclamation-triangle':'info-circle';
+  t.innerHTML = `<i class="fas fa-${icon}" style="color:var(--${type==='info'?'blue':type})"></i><span>${escapeHtml(msg)}</span>`;
+  c.appendChild(t);
+  setTimeout(()=>{ t.style.opacity='0'; t.style.transform='translateX(-100%)'; setTimeout(()=>t.remove(),300); }, 4000);
+}
+
+// ============ MODAL ============
+function openModal(id){ document.getElementById(id).classList.add('active'); }
+function closeModal(id){ document.getElementById(id).classList.remove('active'); }
+
+// ============ AUTH ============
+function renderAuthButtons(){
+  const c = document.getElementById('authButtons');
+  if(currentSession){
+    const u = db.users.find(x=>x.id===currentSession.userId);
+    const dash = u && u.role==='admin' ? 'page-admin' : 'page-user';
+    c.innerHTML = `
+      <button class="btn btn-outline btn-sm" onclick="navigate('${u && u.role==='admin'?'admin':'user'}')">
+        <i class="fas fa-user"></i> ${u && u.role==='admin'?'پنل مدیریت':'پنل کاربری'}
+      </button>
+      <a href="https://t.me/mrstructure1" target="_blank" class="btn btn-telegram btn-sm">
+        <i class="fab fa-telegram"></i> تلگرام
+      </a>
+    `;
+  } else {
+    c.innerHTML = `
+      <button class="btn btn-outline btn-sm" onclick="openAuthModal('login')">ورود</button>
+      <button class="btn btn-blue btn-sm" onclick="openAuthModal('register')">ثبت‌نام</button>
+      <a href="https://t.me/mrstructure1" target="_blank" class="btn btn-telegram btn-sm">
+        <i class="fab fa-telegram"></i>
+      </a>
+    `;
+  }
+}
+function openAuthModal(tab='login'){
+  openModal('authModal');
+  switchAuthTab(tab);
+}
+function switchAuthTab(tab, el){
+  document.querySelectorAll('#authModal .tab').forEach(t=>t.classList.remove('active'));
+  if(el) el.classList.add('active');
+  else document.querySelector(`#authModal .tab:${tab==='login'?'first':'last'}-child`).classList.add('active');
+  document.getElementById('loginForm').classList.toggle('hidden', tab!=='login');
+  document.getElementById('registerForm').classList.toggle('hidden', tab!=='register');
+  document.getElementById('authTitle').textContent = tab==='login'?'ورود به حساب':'ثبت‌نام';
+}
+function handleLogin(e){
+  e.preventDefault();
+  const u = document.getElementById('login_username').value.trim();
+  const p = document.getElementById('login_password').value;
+  const err = document.getElementById('loginError');
+  const user = db.users.find(x=>(x.username===u||x.email===u) && x.password===p);
+  if(!user){ err.textContent='نام کاربری یا رمز عبور اشتباه است'; err.classList.add('show'); return; }
+  err.classList.remove('show');
+  currentSession = { userId:user.id, role:user.role };
+  setSession(currentSession);
+  closeModal('authModal');
+  renderAuthButtons();
+  toast('خوش آمدید، '+user.name,'success');
+  navigate(user.role==='admin'?'admin':'user');
+  e.target.reset();
+}
+function handleRegister(e){
+  e.preventDefault();
+  const name = document.getElementById('reg_name').value.trim();
+  const email = document.getElementById('reg_email').value.trim();
+  const username = document.getElementById('reg_username').value.trim();
+  const password = document.getElementById('reg_password').value;
+  const err = document.getElementById('regError');
+  if(db.users.some(x=>x.username===username)){ err.textContent='این نام کاربری قبلاً استفاده شده'; err.classList.add('show'); return; }
+  if(db.users.some(x=>x.email===email)){ err.textContent='این ایمیل قبلاً ثبت شده'; err.classList.add('show'); return; }
+  const user = { id:uid('u_'), username, password, name, email, role:'user', createdAt:Date.now() };
+  db.users.push(user); saveDB(db);
+  currentSession = { userId:user.id, role:'user' };
+  setSession(currentSession);
+  closeModal('authModal');
+  renderAuthButtons();
+  toast('ثبت‌نام موفق! خوش آمدید '+name,'success');
+  navigate('user');
+  e.target.reset();
+}
+function logout(){
+  if(!confirm('آیا می‌خواهید خارج شوید؟')) return;
+  clearSession();
+  currentSession = null;
+  renderAuthButtons();
+  toast('با موفقیت خارج شدید','info');
+  navigate('home');
+}
+
+// ============ REQUEST FORM ============
+function openRequestForm(type){
+  if(!currentSession){
+    toast('برای ثبت درخواست ابتدا وارد حساب خود شوید','warn');
+    openAuthModal('login');
+    return;
+  }
+  if(currentSession.role==='admin'){
+    toast('مدیر نمی‌تواند درخواست ثبت کند','warn');
+    return;
+  }
+  document.getElementById('req_type').value = type;
+  document.getElementById('requestFormTitle').innerHTML = `<i class="fas fa-file-pen"></i> ${SERVICE_LABELS[type]}`;
+  
+  const descs = {
+    troubleshoot:'مشکل خود را شرح دهید و فایل‌های مرتبط را ارسال کنید. پس از بررسی، قیمت و زمان تحویل اعلام خواهد شد.',
+    exercise:'صورت تمرین‌ها را با تصویر یا PDF ارسال کنید. پس از بررسی، مبلغ و زمان تحویل به شما اعلام می‌شود.',
+    tutoring:'اطلاعات موردنیاز برای برنامه‌ریزی جلسات آموزشی خصوصی را وارد کنید.'
+  };
+  document.getElementById('requestFormDesc').textContent = descs[type];
+  
+  // Show/hide type-specific fields
+  const show = (id,v)=>document.getElementById(id).classList.toggle('hidden',!v);
+  show('group_help_type', type==='troubleshoot');
+  show('group_urgency', type==='troubleshoot');
+  show('group_qcount', type==='exercise');
+  show('group_output', type==='exercise');
+  show('group_deadline', type==='exercise');
+  show('group_level', type==='tutoring');
+  show('group_goal', type==='tutoring');
+  show('group_duration', type==='tutoring');
+  show('group_time', type==='tutoring');
+  
+  pendingFiles = [];
+  renderFileList();
+  document.getElementById('requestForm').reset();
+  document.getElementById('req_type').value = type;
+  navigate('request');
+}
+
+// ============ FILE UPLOAD ============
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+const MAX_FILES = 10;
+const ALLOWED_TYPES = ['image/jpeg','image/png','application/pdf'];
+
+function setupFileUpload(dropZoneId, inputId, listId, filesArray, maxSize=MAX_FILE_SIZE){
+  const dz = document.getElementById(dropZoneId);
+  const inp = document.getElementById(inputId);
+  dz.addEventListener('click', ()=>inp.click());
+  dz.addEventListener('dragover', e=>{ e.preventDefault(); dz.classList.add('dragover'); });
+  dz.addEventListener('dragleave', ()=>dz.classList.remove('dragover'));
+  dz.addEventListener('drop', e=>{
+    e.preventDefault(); dz.classList.remove('dragover');
+    handleFiles(e.dataTransfer.files, filesArray, listId, maxSize);
+  });
+  inp.addEventListener('change', e=>{
+    handleFiles(e.target.files, filesArray, listId, maxSize);
+    inp.value='';
+  });
+}
+
+function handleFiles(fileList, filesArray, listId, maxSize){
+  const errEl = document.getElementById('fileError') || {classList:{remove:()=>{},add:()=>{}},textContent:''};
+  for(const f of fileList){
+    if(filesArray.length >= MAX_FILES){ toast('حداکثر '+MAX_FILES+' فایل مجاز است','warn'); break; }
+    if(!ALLOWED_TYPES.includes(f.type) && !(f.type.startsWith('application/') && f.name.toLowerCase().endsWith('.pdf'))){
+      if(!f.type.startsWith('application/zip') && !f.type.startsWith('application/x-rar')){
+        toast('فرمت فایل '+f.name+' مجاز نیست','error'); continue;
+      }
+    }
+    if(f.size > maxSize){ toast('حجم '+f.name+' بیش از '+formatSize(maxSize)+' است','error'); continue; }
+    
+    // Read as data URL
+    const reader = new FileReader();
+    reader.onprogress = (e)=>{
+      // simulate progress
+    };
+    reader.onload = (e)=>{
+      filesArray.push({
+        id: uid('f_'),
+        name: f.name,
+        size: f.size,
+        type: f.type,
+        dataUrl: e.target.result,
+        uploadedAt: Date.now()
+      });
+      renderFileListForArray(filesArray, listId);
+    };
+    reader.onerror = ()=>toast('خطا در خواندن '+f.name,'error');
+    reader.readAsDataURL(f);
+  }
+}
+
+function renderFileList(){ renderFileListForArray(pendingFiles, 'fileList'); }
+function renderFileListForArray(arr, listId){
+  const c = document.getElementById(listId);
+  if(!arr.length){ c.innerHTML=''; return; }
+  c.innerHTML = arr.map(f=>{
+    const isImg = f.type.startsWith('image/');
+    const thumb = isImg ? `<img src="${f.dataUrl}" alt="">` : `<i class="fas fa-file-pdf" style="font-size:28px;color:var(--danger)"></i>`;
+    return `
+      <div class="file-item">
+        ${thumb}
+        <div class="file-info">
+          <div class="file-name">${escapeHtml(f.name)}</div>
+          <div class="file-size">${formatSize(f.size)}</div>
+          <div class="upload-progress"><div class="upload-progress-bar" style="width:100%"></div></div>
+        </div>
+        <button type="button" class="remove-btn" onclick="removeFile('${f.id}','${listId}')">
+          <i class="fas fa-trash"></i>
+        </button>
+      </div>
+    `;
+  }).join('');
+}
+function removeFile(id, listId){
+  if(listId==='fileList'){
+    pendingFiles = pendingFiles.filter(f=>f.id!==id);
+    renderFileList();
+  } else if(listId==='deliveryFileList'){
+    deliveryFiles = deliveryFiles.filter(f=>f.id!==id);
+    renderFileListForArray(deliveryFiles,'deliveryFileList');
+  }
+}
+
+// ============ SUBMIT REQUEST ============
+function submitRequest(e){
+  e.preventDefault();
+  if(!currentSession){ toast('ابتدا وارد شوید','warn'); return; }
+  const type = document.getElementById('req_type').value;
+  const subject = document.getElementById('req_subject').value;
+  const description = document.getElementById('req_description').value.trim();
+  if(!subject || !description){ toast('لطفاً فیلدهای ضروری را پر کنید','warn'); return; }
+  
+  const order = {
+    id: uid('o_'),
+    trackingNumber: trackingNumber(),
+    userId: currentSession.userId,
+    type,
+    subject,
+    topic: document.getElementById('req_topic').value,
+    description,
+    helpType: document.getElementById('req_help_type').value,
+    urgency: document.getElementById('req_urgency').value,
+    qcount: document.getElementById('req_qcount').value,
+    outputType: document.getElementById('req_output').value,
+    deadline: document.getElementById('req_deadline').value,
+    level: document.getElementById('req_level').value,
+    goal: document.getElementById('req_goal').value,
+    duration: document.getElementById('req_duration').value,
+    preferredTime: document.getElementById('req_time').value,
+    extraNotes: document.getElementById('req_extra').value,
+    status: 'registered',
+    createdAt: Date.now(),
+    updatedAt: Date.now(),
+    files: pendingFiles.map(f=>f.id),
+    currentPrice: null,
+    deliveryFiles: [],
+    deliveryNotes: ''
+  };
+  
+  // Save files
+  pendingFiles.forEach(f=>{
+    f.orderId = order.id;
+    f.userId = currentSession.userId;
+    db.files.push(f);
+  });
+  
+  db.orders.push(order);
+  db.statusHistory.push({
+    id: uid('sh_'), orderId: order.id, from:null, to:'registered',
+    by: currentSession.userId, at: Date.now(), note:'درخواست ثبت شد'
+  });
+  
+  saveDB(db);
+  pendingFiles = [];
+  
+  toast('درخواست با موفقیت ثبت شد. شماره پیگیری: '+order.trackingNumber,'success');
+  
+  // Show success info
+  setTimeout(()=>{
+    alert(`✅ درخواست شما با موفقیت ثبت شد!\n\nشماره پیگیری: ${order.trackingNumber}\nنوع خدمت: ${SERVICE_LABELS[type]}\nدرس: ${subject}\nتاریخ ثبت: ${formatDate(order.createdAt)}\nوضعیت: ${STATUS_LABELS[order.status]}\n\nبرای پیگیری به پنل کاربری مراجعه کنید.`);
+    navigate('user');
+  }, 300);
+}
+
+// ============ USER DASHBOARD ============
+function renderUserDashboard(){
+  if(!currentSession || currentSession.role==='admin'){ navigate('home'); return; }
+  showUserTab('orders');
+}
+function showUserTab(tab, el){
+  if(el){
+    document.querySelectorAll('#page-user .dash-nav-item').forEach(n=>n.classList.remove('active'));
+    el.classList.add('active');
+  }
+  const main = document.getElementById('userMain');
+  const user = db.users.find(u=>u.id===currentSession.userId);
+  const userOrders = db.orders.filter(o=>o.userId===currentSession.userId).sort((a,b)=>b.createdAt-a.createdAt);
+  
+  if(tab==='orders'){
+    main.innerHTML = `
+      <div class="stats-grid">
+        <div class="stat-card navy"><div class="label">کل درخواست‌ها</div><div class="value">${userOrders.length}</div></div>
+        <div class="stat-card blue"><div class="label">در حال انجام</div><div class="value">${userOrders.filter(o=>['in_progress','awaiting_payment','awaiting_user_confirm','priced'].includes(o.status)).length}</div></div>
+        <div class="stat-card"><div class="label">تکمیل‌شده</div><div class="value">${userOrders.filter(o=>o.status==='completed').length}</div></div>
+      </div>
+      <div class="dash-card">
+        <h3><i class="fas fa-list"></i> سفارش‌های من</h3>
+        ${userOrders.length===0 ? `
+          <div class="empty-state">
+            <i class="fas fa-inbox"></i>
+            <h4>هنوز درخواستی ثبت نکرده‌اید</h4>
+            <p>اولین درخواست خود را ثبت کنید</p>
+            <button class="btn btn-blue mt-3" onclick="showUserTab('new',document.querySelectorAll('#page-user .dash-nav-item')[1])">ثبت درخواست جدید</button>
+          </div>
+        ` : `
+          <div class="table-wrap">
+            <table>
+              <thead><tr>
+                <th>شماره پیگیری</th><th>نوع خدمت</th><th>درس</th><th>وضعیت</th><th>تاریخ</th><th></th>
+              </tr></thead>
+              <tbody>
+                ${userOrders.map(o=>`
+                  <tr>
+                    <td><code style="color:var(--blue);font-weight:600">${o.trackingNumber}</code></td>
+                    <td>${SERVICE_LABELS[o.type]}</td>
+                    <td>${escapeHtml(o.subject)}</td>
+                    <td><span class="badge ${STATUS_BADGE[o.status]}">${STATUS_LABELS[o.status]}</span></td>
+                    <td>${formatDate(o.createdAt)}</td>
+                    <td><button class="btn btn-outline btn-sm" onclick="viewOrder('${o.id}')">مشاهده</button></td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        `}
+      </div>
+    `;
+  } else if(tab==='new'){
+    main.innerHTML = `
+      <div class="dash-card">
+        <h3><i class="fas fa-plus"></i> ثبت درخواست جدید</h3>
+        <p style="color:var(--muted);margin-bottom:20px">نوع خدمت موردنظر خود را انتخاب کنید:</p>
+        <div class="services-grid">
+          <div class="service-card" onclick="openRequestForm('troubleshoot')" style="cursor:pointer">
+            <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
+            <h3>رفع اشکال</h3>
+            <p>سؤال یا مشکل خود را مطرح کنید</p>
+          </div>
+          <div class="service-card" onclick="openRequestForm('exercise')" style="cursor:pointer">
+            <div class="service-icon"><i class="fas fa-file-pen"></i></div>
+            <h3>حل تمرین</h3>
+            <p>تمرین‌های خود را ارسال کنید</p>
+          </div>
+          <div class="service-card" onclick="openRequestForm('tutoring')" style="cursor:pointer">
+            <div class="service-icon"><i class="fas fa-chalkboard-user"></i></div>
+            <h3>آموزش خصوصی</h3>
+            <p>درخواست جلسه آموزشی</p>
+          </div>
+        </div>
+      </div>
+    `;
+  } else if(tab==='profile'){
+    main.innerHTML = `
+      <div class="dash-card">
+        <h3><i class="fas fa-user"></i> اطلاعات حساب</h3>
+        <div class="order-meta">
+          <div class="meta-item"><div class="lbl">نام</div><div class="val">${escapeHtml(user.name)}</div></div>
+          <div class="meta-item"><div class="lbl">نام کاربری</div><div class="val">${escapeHtml(user.username)}</div></div>
+          <div class="meta-item"><div class="lbl">ایمیل</div><div class="val">${escapeHtml(user.email)}</div></div>
+          <div class="meta-item"><div class="lbl">تاریخ عضویت</div><div class="val">${formatDate(user.createdAt)}</div></div>
+        </div>
+        <a href="https://t.me/mrstructure1" target="_blank" class="btn btn-telegram">
+          <i class="fab fa-telegram"></i> ارتباط با مدیر در تلگرام
+        </a>
+      </div>
+    `;
+  }
+}
+
+// ============ VIEW ORDER (USER) ============
+function viewOrder(orderId){
+  const order = db.orders.find(o=>o.id===orderId);
+  if(!order){ toast('سفارش یافت نشد','error'); return; }
+  // Check permission
+  if(currentSession.role!=='admin' && order.userId!==currentSession.userId){
+    toast('دسترسی مجاز نیست','error'); return;
+  }
+  renderOrderDetail(order);
+  navigate('order');
+}
+
+function renderOrderDetail(order){
+  const user = db.users.find(u=>u.id===order.userId);
+  const orderFiles = db.files.filter(f=>order.files.includes(f.id));
+  const deliveryFiles = db.files.filter(f=>(order.deliveryFiles||[]).includes(f.id));
+  const messages = db.messages.filter(m=>m.orderId===order.id).sort((a,b)=>a.at-b.at);
+  const priceHist = db.priceHistory.filter(p=>p.orderId===order.id).sort((a,b)=>b.at-a.at);
+  const statusHist = db.statusHistory.filter(s=>s.orderId===order.id).sort((a,b)=>a.at-b.at);
+  const isAdmin = currentSession.role==='admin';
+  
+  const statusSteps = ['registered','reviewing','priced','awaiting_user_confirm','in_progress','ready','completed'];
+  const currentIdx = statusSteps.indexOf(order.status);
+  
+  const c = document.getElementById('orderDetailContent');
+  c.innerHTML = `
+    <div class="dash-card">
+      <div class="order-header">
+        <div>
+          <h3 style="margin-bottom:6px"><i class="fas fa-file-contract"></i> سفارش ${order.trackingNumber}</h3>
+          <p style="color:var(--muted);font-size:13px">${SERVICE_LABELS[order.type]} • ${formatDate(order.createdAt)}</p>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span class="badge ${STATUS_BADGE[order.status]}" style="font-size:14px;padding:6px 14px">${STATUS_LABELS[order.status]}</span>
+          <a href="https://t.me/mrstructure1" target="_blank" class="btn btn-telegram btn-sm">
+            <i class="fab fa-telegram"></i> ارتباط در تلگرام
+          </a>
+          <button class="btn btn-outline btn-sm" onclick="navigate('${isAdmin?'admin':'user'}')">بازگشت</button>
+        </div>
+      </div>
+      
+      <!-- Progress -->
+      <div style="margin:24px 0">
+        <div style="display:flex;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:6px">
+          ${statusSteps.map((s,i)=>`
+            <div style="flex:1;min-width:80px;text-align:center">
+              <div style="height:6px;background:${i<=currentIdx?'var(--blue)':'var(--border)'};border-radius:3px;margin-bottom:6px"></div>
+              <div style="font-size:11px;color:${i<=currentIdx?'var(--navy)':'var(--muted)'};font-weight:${i===currentIdx?700:400}">${STATUS_LABELS[s]}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+      
+      <div class="order-meta">
+        <div class="meta-item"><div class="lbl">شماره پیگیری</div><div class="val">${order.trackingNumber}</div></div>
+        <div class="meta-item"><div class="lbl">نوع خدمت</div><div class="val">${SERVICE_LABELS[order.type]}</div></div>
+        <div class="meta-item"><div class="lbl">درس</div><div class="val">${escapeHtml(order.subject)}</div></div>
+        ${order.topic?`<div class="meta-item"><div class="lbl">مبحث</div><div class="val">${escapeHtml(order.topic)}</div></div>`:''}
+        <div class="meta-item"><div class="lbl">تاریخ ثبت</div><div class="val">${formatDate(order.createdAt)}</div></div>
+        ${order.currentPrice?`<div class="meta-item"><div class="lbl">مبلغ</div><div class="val" style="color:var(--success);font-size:16px">${order.currentPrice.amount.toLocaleString('fa-IR')} ${order.currentPrice.currency}</div></div>`:''}
+        ${order.currentPrice?`<div class="meta-item"><div class="lbl">زمان تحویل</div><div class="val">${escapeHtml(order.currentPrice.delivery)}</div></div>`:''}
+      </div>
+      
+      <div style="margin-top:20px">
+        <h4 style="color:var(--navy);margin-bottom:8px">شرح درخواست</h4>
+        <p style="background:var(--bg);padding:14px;border-radius:10px;white-space:pre-wrap">${escapeHtml(order.description)}</p>
+        ${order.extraNotes?`<p style="margin-top:10px;color:var(--muted);font-size:14px"><strong>توضیحات تکمیلی:</strong> ${escapeHtml(order.extraNotes)}</p>`:''}
+      </div>
+      
+      ${orderFiles.length?`
+        <div style="margin-top:20px">
+          <h4 style="color:var(--navy);margin-bottom:8px"><i class="fas fa-paperclip"></i> فایل‌های پیوست (${orderFiles.length})</h4>
+          <div class="attachments-grid">
+            ${orderFiles.map(f=>{
+              const isImg = f.type.startsWith('image/');
+              return `
+                <div class="attachment-thumb">
+                  ${isImg?`<img src="${f.dataUrl}" alt="${escapeHtml(f.name)}">`:`
+                    <div class="pdf-thumb">
+                      <i class="fas fa-file-pdf"></i>
+                      <span>${escapeHtml(f.name)}</span>
+                      <span>${formatSize(f.size)}</span>
+                    </div>
+                  `}
+                  <a href="${f.dataUrl}" download="${escapeHtml(f.name)}" class="download" title="دانلود"><i class="fas fa-download"></i></a>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      `:''}
+      
+      ${isAdmin?`
+        <div style="margin-top:20px;padding:14px;background:var(--bg);border-radius:10px">
+          <h4 style="color:var(--navy);margin-bottom:8px"><i class="fas fa-user"></i> اطلاعات کاربر</h4>
+          <p><strong>نام:</strong> ${escapeHtml(user.name)}</p>
+          <p><strong>نام کاربری:</strong> ${escapeHtml(user.username)}</p>
+          <p><strong>ایمیل:</strong> ${escapeHtml(user.email)}</p>
+        </div>
+      `:''}
+    </div>
+    
+    <!-- Price History -->
+    ${priceHist.length?`
+      <div class="dash-card">
+        <h3><i class="fas fa-hand-holding-dollar"></i> تاریخچه پیشنهادهای قیمت</h3>
+        ${priceHist.map(p=>`
+          <div class="price-item">
+            <div><span class="amount">${p.amount.toLocaleString('fa-IR')} ${p.currency}</span> • تحویل: ${escapeHtml(p.delivery)}</div>
+            <div class="status">
+              وضعیت: <span class="badge ${p.accepted===true?'badge-done':p.accepted===false?'badge-cancel':'badge-pending'}">
+                ${p.accepted===true?'تأیید شده':p.accepted===false?'رد شده':'در انتظار'}
+              </span>
+              ${p.notes?` • ${escapeHtml(p.notes)}`:''}
+            </div>
+            <div style="font-size:11px;color:var(--muted);margin-top:4px">${formatDate(p.at)}</div>
+          </div>
+        `).join('')}
+      </div>
+    `:''}
+    
+    <!-- User Actions for Price -->
+    ${!isAdmin && order.currentPrice && order.status==='awaiting_user_confirm' && order.currentPrice.accepted===null?`
+      <div class="dash-card" style="background:linear-gradient(135deg,var(--blue-soft),#fff);border-color:var(--blue)">
+        <h3><i class="fas fa-hand-holding-dollar"></i> پیشنهاد جدید</h3>
+        <div class="order-meta">
+          <div class="meta-item"><div class="lbl">مبلغ</div><div class="val" style="font-size:20px;color:var(--success)">${order.currentPrice.amount.toLocaleString('fa-IR')} ${order.currentPrice.currency}</div></div>
+          <div class="meta-item"><div class="lbl">زمان تحویل</div><div class="val">${escapeHtml(order.currentPrice.delivery)}</div></div>
+          <div class="meta-item"><div class="lbl">مهلت اعتبار</div><div class="val">${order.currentPrice.validity} ساعت</div></div>
+        </div>
+        ${order.currentPrice.notes?`<p style="background:#fff;padding:12px;border-radius:8px;margin:12px 0">${escapeHtml(order.currentPrice.notes)}</p>`:''}
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+          <button class="btn btn-success btn-lg" onclick="respondToPrice('${order.id}',true)"><i class="fas fa-check"></i> تأیید پیشنهاد</button>
+          <button class="btn btn-danger btn-lg" onclick="respondToPrice('${order.id}',false)"><i class="fas fa-times"></i> رد پیشنهاد</button>
+          <a href="https://t.me/mrstructure1" target="_blank" class="btn btn-telegram btn-lg"><i class="fab fa-telegram"></i> مذاکره در تلگرام</a>
+        </div>
+      </div>
+    `:''}
+    
+    ${!isAdmin && order.currentPrice && order.currentPrice.accepted===false?`
+      <div class="dash-card" style="background:#fef3c7">
+        <h3><i class="fas fa-clock"></i> در انتظار پیشنهاد جدید</h3>
+        <p>شما پیشنهاد قبلی را رد کردید. مدیر به‌زودی پیشنهاد جدیدی ارائه خواهد کرد یا از طریق تلگرام با شما هماهنگ می‌کند.</p>
+        <a href="https://t.me/mrstructure1" target="_blank" class="btn btn-telegram mt-3"><i class="fab fa-telegram"></i> ارتباط در تلگرام</a>
+      </div>
+    `:''}
+    
+    ${!isAdmin && order.currentPrice && order.currentPrice.accepted===true && order.status==='awaiting_payment'?`
+      <div class="dash-card" style="background:var(--blue-soft)">
+        <h3><i class="fas fa-credit-card"></i> پرداخت</h3>
+        <p>پیشنهاد شما تأیید شده است. در حال حاضر درگاه پرداخت آنلاین فعال نیست.</p>
+        <p style="margin-top:10px">برای هماهنگی پرداخت با مدیر از طریق تلگرام در ارتباط باشید:</p>
+        <a href="https://t.me/mrstructure1" target="_blank" class="btn btn-telegram mt-3"><i class="fab fa-telegram"></i> هماهنگی پرداخت در تلگرام</a>
+        <p style="font-size:12px;color:var(--muted);margin-top:10px">* پس از پرداخت، مدیر وضعیت سفارش را به «در حال انجام» تغییر می‌دهد.</p>
+      </div>
+    `:''}
+    
+    <!-- Delivery Files -->
+    ${deliveryFiles.length?`
+      <div class="dash-card">
+        <h3><i class="fas fa-file-circle-check"></i> فایل‌های تحویلی</h3>
+        ${order.deliveryNotes?`<p style="background:var(--bg);padding:12px;border-radius:8px;margin-bottom:14px">${escapeHtml(order.deliveryNotes)}</p>`:''}
+        <div class="attachments-grid">
+          ${deliveryFiles.map(f=>{
+            const isImg = f.type.startsWith('image/');
+            return `
+              <div class="attachment-thumb">
+                ${isImg?`<img src="${f.dataUrl}" alt="${escapeHtml(f.name)}">`:`
+                  <div class="pdf-thumb">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>${escapeHtml(f.name)}</span>
+                    <span>${formatSize(f.size)}</span>
+                  </div>
+                `}
+                <a href="${f.dataUrl}" download="${escapeHtml(f.name)}" class="download" title="دانلود"><i class="fas fa-download"></i></a>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      </div>
+    `:''}
+    
+    <!-- Messages -->
+    <div class="dash-card">
+      <h3><i class="fas fa-comments"></i> پیام‌های سفارش</h3>
+      <div class="messages-list" id="msgList_${order.id}">
+        ${messages.length===0?'<div class="empty-state"><i class="fas fa-comment-slash"></i><p>هنوز پیامی ارسال نشده</p></div>':
+          messages.map(m=>`
+            <div class="message ${m.senderRole}">
+              <div class="sender">${m.senderRole==='user'?'شما':'مدیر'}</div>
+              <div>${escapeHtml(m.text)}</div>
+              <div class="time">${formatDate(m.at)}</div>
+            </div>
+          `).join('')
+        }
+      </div>
+      <div class="message-input">
+        <textarea class="form-control" id="msgInput_${order.id}" placeholder="پیام خود را بنویسید..." rows="2"></textarea>
+        <button class="btn btn-blue" onclick="sendMessage('${order.id}')"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+    
+    <!-- Admin Actions -->
+    ${isAdmin?`
+      <div class="dash-card">
+        <h3><i class="fas fa-cogs"></i> اقدامات مدیر</h3>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn-blue" onclick="openPriceModal('${order.id}')"><i class="fas fa-hand-holding-dollar"></i> ثبت قیمت و زمان تحویل</button>
+          <button class="btn btn-outline" onclick="openStatusModal('${order.id}')"><i class="fas fa-exchange-alt"></i> تغییر وضعیت</button>
+          <button class="btn btn-success" onclick="openDeliveryModal('${order.id}')"><i class="fas fa-file-arrow-up"></i> بارگذاری فایل پاسخ</button>
+        </div>
+        
+        <div class="price-history">
+          <h5>تاریخچه تغییرات وضعیت</h5>
+          <div class="timeline">
+            ${statusHist.map((s,i)=>`
+              <div class="timeline-item ${i===statusHist.length-1?'current':'done'}">
+                <div class="title">${STATUS_LABELS[s.to]}</div>
+                <div class="time">${formatDate(s.at)}${s.note?' • '+escapeHtml(s.note):''}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+    `:''}
+  `;
+  
+  // Scroll messages to bottom
+  setTimeout(()=>{
+    const ml = document.getElementById('msgList_'+order.id);
+    if(ml) ml.scrollTop = ml.scrollHeight;
+  },100);
+}
+
+function sendMessage(orderId){
+  const inp = document.getElementById('msgInput_'+orderId);
+  const text = inp.value.trim();
+  if(!text){ toast('پیام خالی است','warn'); return; }
+  const user = db.users.find(u=>u.id===currentSession.userId);
+  db.messages.push({
+    id: uid('m_'),
+    orderId,
+    senderId: currentSession.userId,
+    senderRole: currentSession.role,
+    text,
+    at: Date.now()
+  });
+  saveDB(db);
+  inp.value='';
+  const order = db.orders.find(o=>o.id===orderId);
+  renderOrderDetail(order);
+  toast('پیام ارسال شد','success');
+}
+
+function respondToPrice(orderId, accept){
+  const order = db.orders.find(o=>o.id===orderId);
+  if(!order || !order.currentPrice) return;
+  if(!confirm(accept?'آیا این پیشنهاد را تأیید می‌کنید؟':'آیا این پیشنهاد را رد می‌کنید؟')) return;
+  order.currentPrice.accepted = accept;
+  order.currentPrice.responseAt = Date.now();
+  order.updatedAt = Date.now();
+  
+  if(accept){
+    order.status = 'awaiting_payment';
+    db.statusHistory.push({id:uid('sh_'),orderId,from:'awaiting_user_confirm',to:'awaiting_payment',by:currentSession.userId,at:Date.now(),note:'کاربر پیشنهاد را تأیید کرد'});
+    toast('پیشنهاد تأیید شد. برای پرداخت با مدیر هماهنگ کنید','success');
+  } else {
+    order.status = 'reviewing';
+    db.statusHistory.push({id:uid('sh_'),orderId,from:'awaiting_user_confirm',to:'reviewing',by:currentSession.userId,at:Date.now(),note:'کاربر پیشنهاد را رد کرد'});
+    toast('پیشنهاد رد شد. مدیر به‌زودی پیشنهاد جدید ارائه می‌دهد','info');
+  }
+  saveDB(db);
+  renderOrderDetail(order);
+}
+
+// ============ ADMIN DASHBOARD ============
+function renderAdminDashboard(){
+  if(!currentSession || currentSession.role!=='admin'){ navigate('home'); return; }
+  showAdminTab('dashboard');
+}
+function showAdminTab(tab, el){
+  if(el){
+    document.querySelectorAll('#page-admin .dash-nav-item').forEach(n=>n.classList.remove('active'));
+    el.classList.add('active');
+  }
+  const main = document.getElementById('adminMain');
+  
+  if(tab==='dashboard'){
+    const total = db.orders.length;
+    const newOrders = db.orders.filter(o=>o.status==='registered').length;
+    const active = db.orders.filter(o=>['reviewing','priced','awaiting_user_confirm','awaiting_payment','in_progress','need_info'].includes(o.status)).length;
+    const completed = db.orders.filter(o=>o.status==='completed').length;
+    const revenue = db.orders.filter(o=>o.currentPrice && o.currentPrice.accepted===true).reduce((s,o)=>s+(o.currentPrice.amount||0),0);
+    
+    main.innerHTML = `
+      <h2 style="color:var(--navy);margin-bottom:20px">داشبورد مدیریت</h2>
+      <div class="stats-grid">
+        <div class="stat-card navy"><div class="label">کل سفارش‌ها</div><div class="value">${total}</div></div>
+        <div class="stat-card"><div class="label">جدید (بررسی‌نشده)</div><div class="value">${newOrders}</div></div>
+        <div class="stat-card blue"><div class="label">فعال</div><div class="value">${active}</div></div>
+        <div class="stat-card"><div class="label">تکمیل‌شده</div><div class="value">${completed}</div></div>
+        <div class="stat-card"><div class="label">کاربران</div><div class="value">${db.users.filter(u=>u.role==='user').length}</div></div>
+        <div class="stat-card navy"><div class="label">مبلغ سفارش‌های تأییدشده</div><div class="value">${revenue.toLocaleString('fa-IR')}</div></div>
+      </div>
+      
+      <div class="dash-card">
+        <h3><i class="fas fa-bell"></i> سفارش‌های جدید در انتظار بررسی</h3>
+        ${db.orders.filter(o=>o.status==='registered').length===0 ? 
+          '<div class="empty-state"><i class="fas fa-check-circle"></i><p>سفارش جدیدی در انتظار بررسی نیست</p></div>' :
+          `<div class="table-wrap"><table>
+            <thead><tr><th>شماره پیگیری</th><th>کاربر</th><th>نوع</th><th>درس</th><th>تاریخ</th><th></th></tr></thead>
+            <tbody>
+              ${db.orders.filter(o=>o.status==='registered').sort((a,b)=>b.createdAt-a.createdAt).map(o=>{
+                const u = db.users.find(x=>x.id===o.userId);
+                return `<tr>
+                  <td><code>${o.trackingNumber}</code></td>
+                  <td>${escapeHtml(u?.name||'-')}</td>
+                  <td>${SERVICE_LABELS[o.type]}</td>
+                  <td>${escapeHtml(o.subject)}</td>
+                  <td>${formatDate(o.createdAt)}</td>
+                  <td><button class="btn btn-blue btn-sm" onclick="viewOrder('${o.id}')">بررسی</button></td>
+                </tr>`;
+              }).join('')}
+            </tbody>
+          </table></div>`
+        }
+      </div>
+      
+      <div class="dash-card">
+        <h3><i class="fas fa-clock-rotate-left"></i> آخرین فعالیت‌ها</h3>
+        <div class="timeline">
+          ${db.statusHistory.slice().sort((a,b)=>b.at-a.at).slice(0,10).map(s=>{
+            const o = db.orders.find(x=>x.id===s.orderId);
+            return `
+              <div class="timeline-item done">
+                <div class="title">${o?.trackingNumber} → ${STATUS_LABELS[s.to]}</div>
+                <div class="time">${formatDate(s.at)}${s.note?' • '+escapeHtml(s.note):''}</div>
+              </div>
+            `;
+          }).join('') || '<p style="color:var(--muted)">هنوز فعالیتی ثبت نشده</p>'}
+        </div>
+      </div>
+    `;
+  } else if(tab==='orders'){
+    renderAdminOrders(main);
+  } else if(tab==='users'){
+    main.innerHTML = `
+      <h2 style="color:var(--navy);margin-bottom:20px">کاربران</h2>
+      <div class="dash-card">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>نام</th><th>نام کاربری</th><th>ایمیل</th><th>نقش</th><th>تعداد سفارش</th><th>تاریخ عضویت</th></tr></thead>
+            <tbody>
+              ${db.users.map(u=>`
+                <tr>
+                  <td>${escapeHtml(u.name)}</td>
+                  <td>${escapeHtml(u.username)}</td>
+                  <td>${escapeHtml(u.email)}</td>
+                  <td><span class="badge ${u.role==='admin'?'badge-info':'badge-done'}">${u.role==='admin'?'مدیر':'کاربر'}</span></td>
+                  <td>${db.orders.filter(o=>o.userId===u.id).length}</td>
+                  <td>${formatDate(u.createdAt)}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    `;
+  }
+}
+
+function renderAdminOrders(main){
+  const filterType = window._adminFilterType || '';
+  const filterStatus = window._adminFilterStatus || '';
+  const search = window._adminSearch || '';
+  
+  let orders = db.orders.slice().sort((a,b)=>b.createdAt-a.createdAt);
+  if(filterType) orders = orders.filter(o=>o.type===filterType);
+  if(filterStatus) orders = orders.filter(o=>o.status===filterStatus);
+  if(search) orders = orders.filter(o=>o.trackingNumber.toLowerCase().includes(search.toLowerCase()));
+  
+  main.innerHTML = `
+    <h2 style="color:var(--navy);margin-bottom:20px">مدیریت درخواست‌ها</h2>
+    <div class="dash-card">
+      <div class="filter-bar">
+        <input type="text" class="form-control" placeholder="جستجو شماره پیگیری..." value="${escapeHtml(search)}" oninput="window._adminSearch=this.value;renderAdminOrders(document.getElementById('adminMain'))" />
+        <select class="form-control" onchange="window._adminFilterType=this.value;renderAdminOrders(document.getElementById('adminMain'))">
+          <option value="">همه انواع</option>
+          <option value="troubleshoot" ${filterType==='troubleshoot'?'selected':''}>رفع اشکال</option>
+          <option value="exercise" ${filterType==='exercise'?'selected':''}>حل تمرین</option>
+          <option value="tutoring" ${filterType==='tutoring'?'selected':''}>آموزش خصوصی</option>
+        </select>
+        <select class="form-control" onchange="window._adminFilterStatus=this.value;renderAdminOrders(document.getElementById('adminMain'))">
+          <option value="">همه وضعیت‌ها</option>
+          ${Object.entries(STATUS_LABELS).map(([k,v])=>`<option value="${k}" ${filterStatus===k?'selected':''}>${v}</option>`).join('')}
+        </select>
+      </div>
+      ${orders.length===0 ? '<div class="empty-state"><i class="fas fa-inbox"></i><p>سفارشی یافت نشد</p></div>' : `
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>شماره</th><th>کاربر</th><th>نوع</th><th>درس</th><th>فایل</th><th>وضعیت</th><th>مبلغ</th><th>تاریخ</th><th></th></tr></thead>
+            <tbody>
+              ${orders.map(o=>{
+                const u = db.users.find(x=>x.id===o.userId);
+                const filesCount = o.files.length;
+                return `<tr>
+                  <td><code style="color:var(--blue);font-weight:600">${o.trackingNumber}</code></td>
+                  <td>${escapeHtml(u?.name||'-')}</td>
+                  <td>${SERVICE_LABELS[o.type]}</td>
+                  <td>${escapeHtml(o.subject)}</td>
+                  <td>${filesCount>0?`<span class="badge badge-info">${filesCount} فایل</span>`:'-'}</td>
+                  <td><span class="badge ${STATUS_BADGE[o.status]}">${STATUS_LABELS[o.status]}</span></td>
+                  <td>${o.currentPrice?o.currentPrice.amount.toLocaleString('fa-IR')+' '+o.currentPrice.currency:'-'}</td>
+                  <td style="font-size:12px">${formatDate(o.createdAt)}</td>
+                  <td><button class="btn btn-blue btn-sm" onclick="viewOrder('${o.id}')">مشاهده</button></td>
+                </tr>`;
+              }).join('')}
+            </tbody>
+          </table>
+        </div>
+      `}
+    </div>
+  `;
+}
+
+// ============ ADMIN ACTIONS ============
+function openPriceModal(orderId){
+  document.getElementById('price_order_id').value = orderId;
+  document.getElementById('price_amount').value = '';
+  document.getElementById('price_delivery').value = '';
+  document.getElementById('price_notes').value = '';
+  openModal('priceModal');
+}
+function submitPrice(e){
+  e.preventDefault();
+  const orderId = document.getElementById('price_order_id').value;
+  const amount = parseFloat(document.getElementById('price_amount').value);
+  const currency = document.getElementById('price_currency').value;
+  const delivery = document.getElementById('price_delivery').value.trim();
+  const validity = parseInt(document.getElementById('price_validity').value);
+  const notes = document.getElementById('price_notes').value.trim();
+  
+  if(!amount || amount<=0){ toast('مبلغ معتبر وارد کنید','error'); return; }
+  if(!delivery){ toast('زمان تحویل را وارد کنید','error'); return; }
+  
+  const order = db.orders.find(o=>o.id===orderId);
+  if(!order) return;
+  
+  const priceObj = {
+    id: uid('p_'),
+    orderId,
+    amount,
+    currency,
+    delivery,
+    validity,
+    notes,
+    accepted: null,
+    at: Date.now()
+  };
+  
+  db.priceHistory.push(priceObj);
+  order.currentPrice = priceObj;
+  order.status = 'awaiting_user_confirm';
+  order.updatedAt = Date.now();
+  db.statusHistory.push({id:uid('sh_'),orderId,from:order.status,to:'awaiting_user_confirm',by:currentSession.userId,at:Date.now(),note:`قیمت ${amount.toLocaleString('fa-IR')} ${currency} اعلام شد`});
+  
+  saveDB(db);
+  closeModal('priceModal');
+  toast('پیشنهاد قیمت برای کاربر ارسال شد','success');
+  renderOrderDetail(order);
+}
+
+function openStatusModal(orderId){
+  document.getElementById('status_order_id').value = orderId;
+  document.getElementById('status_note').value = '';
+  const order = db.orders.find(o=>o.id===orderId);
+  if(order) document.getElementById('status_new').value = order.status;
+  openModal('statusModal');
+}
+function submitStatusChange(e){
+  e.preventDefault();
+  const orderId = document.getElementById('status_order_id').value;
+  const newStatus = document.getElementById('status_new').value;
+  const note = document.getElementById('status_note').value.trim();
+  const order = db.orders.find(o=>o.id===orderId);
+  if(!order) return;
+  const old = order.status;
+  order.status = newStatus;
+  order.updatedAt = Date.now();
+  db.statusHistory.push({id:uid('sh_'),orderId,from:old,to:newStatus,by:currentSession.userId,at:Date.now(),note});
+  saveDB(db);
+  closeModal('statusModal');
+  toast('وضعیت سفارش تغییر کرد','success');
+  renderOrderDetail(order);
+}
+
+function openDeliveryModal(orderId){
+  document.getElementById('delivery_order_id').value = orderId;
+  document.getElementById('delivery_notes').value = '';
+  deliveryFiles = [];
+  renderFileListForArray(deliveryFiles,'deliveryFileList');
+  openModal('deliveryModal');
+}
+function submitDelivery(e){
+  e.preventDefault();
+  const orderId = document.getElementById('delivery_order_id').value;
+  const notes = document.getElementById('delivery_notes').value.trim();
+  const order = db.orders.find(o=>o.id===orderId);
+  if(!order) return;
+  if(deliveryFiles.length===0){ toast('حداقل یک فایل بارگذاری کنید','warn'); return; }
+  
+  deliveryFiles.forEach(f=>{
+    f.orderId = orderId;
+    f.isDelivery = true;
+    f.userId = currentSession.userId;
+    db.files.push(f);
+    order.deliveryFiles.push(f.id);
+  });
+  order.deliveryNotes = notes;
+  order.status = 'ready';
+  order.updatedAt = Date.now();
+  db.statusHistory.push({id:uid('sh_'),orderId,from:'in_progress',to:'ready',by:currentSession.userId,at:Date.now(),note:`${deliveryFiles.length} فایل تحویل داده شد`});
+  
+  saveDB(db);
+  deliveryFiles = [];
+  closeModal('deliveryModal');
+  toast('فایل‌های پاسخ با موفقیت بارگذاری شد','success');
+  renderOrderDetail(order);
+}
+
+// ============ INIT ============
+function init(){
+  renderAuthButtons();
+  
+  // Setup file upload for request form
+  setupFileUpload('fileDropZone','fileInput','fileList',pendingFiles);
+  // Setup file upload for delivery
+  setupFileUpload('deliveryDropZone','deliveryFileInput','deliveryFileList',deliveryFiles, 10*1024*1024);
+  
+  // Close modal on overlay click
+  document.querySelectorAll('.modal-overlay').forEach(m=>{
+    m.addEventListener('click', e=>{ if(e.target===m) m.classList.remove('active'); });
+  });
+  
+  // Check session
+  if(currentSession){
+    const u = db.users.find(x=>x.id===currentSession.userId);
+    if(!u){ clearSession(); currentSession=null; renderAuthButtons(); }
+  }
+}
+init();
+</script>
+</body>
+</html>
